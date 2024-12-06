@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My Vue Page</title>
+</head>
+<body>
+    <!-- This div will be controlled by Vue -->
+    <div id="app">
+        <h1>{{ title }}</h1>
+        <p>
+            I chose Vue.js as my framework and included it via a CDN. Below I will explain:
+        </p>
+        
+        <h2>How I Installed the Framework</h2>
+        <p>
+            I didn’t actually "install" Vue on my machine. Instead, I just used a 
+            <code>&lt;script&gt;</code> tag to include the Vue library from a CDN. 
+            This means no local setup was required. The code snippet:
+        </p>
+        <pre>
+            &lt;script src="https://unpkg.com/vue@3/dist/vue.global.js"&gt;&lt;/script&gt;
+        </pre>
+        
+        <h2>How I Built This Page</h2>
+        <p>
+            1. Created a basic <code>index.html</code> file.<br>
+            2. Added the Vue CDN link in the <code>&lt;head&gt;</code> section.<br>
+            3. Defined an <code>id="app"</code> container where Vue controls the content.<br>
+            4. Initialized a Vue application instance and bound <code>data()</code> properties 
+               to the template. The <code>{{ title }}</code> tag above is dynamically populated 
+               by Vue's reactive data.
+        </p>
+        
+        <p>
+            The code that starts Vue looks like this:
+        </p>
+        <pre>
+            const { createApp } = Vue
+
+            createApp({
+              data() {
+                return {
+                  title: 'Welcome to My Vue Page!'
+                }
+              }
+            }).mount('#app')
+        </pre>
+        
+        <h2>Difficulties Encountered and How I Solved Them</h2>
+        <p>
+            - **Difficulty:** At first, I wasn’t sure which framework could be used directly from a CDN 
+              without complex installation steps.
+              <br><strong>Solution:</strong> After considering React and Angular, I realized Vue is the 
+              easiest to just drop in and go. React and Angular often require additional tooling to get 
+              started comfortably, but Vue is simple enough to run right in an HTML file.
+            <br><br>
+            - **Difficulty:** Ensuring the framework worked without a build step.
+              <br><strong>Solution:</strong> I used the Vue "global build" from the CDN that supports 
+              using the `<script>` tag directly, no bundlers required.
+            <br><br>
+            - **Difficulty:** Finding hosting options.
+              <br><strong>Solution:</strong> Because this is a static file (just HTML, CSS, and a CDN-loaded JS), I can 
+              host it almost anywhere—even on GitHub Pages or a simple shared hosting environment. 
+              No special server configuration is needed.
+        </p>
+    </div>
+    
+    <!-- Include Vue from a CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        // Initialize the Vue app
+        const { createApp } = Vue
+        
+        createApp({
+          data() {
+            return {
+              title: 'Welcome to My Vue Page!'
+            }
+          }
+        }).mount('#app')
+    </script>
+</body>
+</html>
